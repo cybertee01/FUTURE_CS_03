@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Flask file uploads</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    {{ form.file.label }} {{ form.file() }}
+    {{ form.submit() }}
+</form>
+
+    {% if file_url %}
+        <h2>File uploaded successfully!</h2>
+        <p>File URL: <a href="{{ file_url }}">{{ file_url }}</a></p>
+    {% endif %}
+
+    {% if error %}
+        <h2>Error: {{ error }}</h2>
+    {% endif %}
+    </form>
+</body>
+</html>
